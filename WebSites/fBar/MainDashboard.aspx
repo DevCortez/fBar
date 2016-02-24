@@ -29,7 +29,7 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
-      <li><a href="#"><i class="glyphicon glyphicon-comment"></i> Nova discussão</a></li>
+      <li><a href="NewThread.aspx"><i class="glyphicon glyphicon-comment"></i> Nova discussão</a></li>
       <li><a href="#"><i class="glyphicon glyphicon-user"></i> <asp:Literal runat="server" ID="loggedUser"></asp:Literal></a> </li>
     </ul>
   </div><!-- /.navbar-collapse -->

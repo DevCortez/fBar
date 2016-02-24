@@ -39,7 +39,7 @@ public partial class MainDashboard : System.Web.UI.Page
 			</ul>
        </div>
     </div>
-  ", thread.Id, thread.Title, thread.Author, thread.Description, ((int)(DateTime.Now - thread.LastActive).TotalMinutes).ToString(), thread.Id, thread.MessageCount);
+  ", "Discussion.aspx?thread=" + thread.Id, thread.Title, thread.Author, thread.Description, ((int)(DateTime.Now - thread.LastActive).TotalMinutes).ToString(), "Discussion.aspx?thread=" + thread.Id, thread.MessageCount);
             threads.Controls.Add(threadControl);
         }
     }

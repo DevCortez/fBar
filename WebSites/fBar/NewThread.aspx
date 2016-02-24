@@ -25,12 +25,12 @@
     <div class="col-md-6">
     						<div class="widget-area no-padding blank">
 								<div class="status-upload">
-									<form>
-										<input type="text" class="form-control" placeholder="Discussion title" aria-describedby="basic-addon1">
+									<form action="NewThread.aspx">
+										<input name="title" type="text" class="form-control" placeholder="Discussion title" aria-describedby="basic-addon1">
                                         
-                                        <textarea style="width:100%" placeholder="Discussion description" ></textarea>
+                                        <textarea name="description" style="width:100%" placeholder="Discussion description" ></textarea>
 
-										</br><button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Share</button>
+										</br><button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Start discussion</button>
 									</form>
 								</div><!-- Status Upload  -->
 							</div><!-- Widget Area -->

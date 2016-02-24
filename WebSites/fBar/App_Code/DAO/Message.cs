@@ -47,7 +47,7 @@ namespace DAO
 
         public static IEnumerable<Message> FromThread(int Id)
         {
-            SQLiteDataReader title = new SQLiteCommand("SELECT ROWID FROM messages WHERE thread = " + internalId.ToString(), Connector.Connector.GetConnection()).ExecuteReader();
+            SQLiteDataReader title = new SQLiteCommand("SELECT ROWID FROM messages WHERE thread = " + Id.ToString(), Connector.Connector.GetConnection()).ExecuteReader();
 
             while (title.Read())
             {

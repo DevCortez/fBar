@@ -69,6 +69,7 @@ namespace DAO
 
                 if(validateLogin.HasRows)
                 {
+                    validateLogin.Read();
                     internalId = validateLogin.GetInt32(0);
                 }
                 else

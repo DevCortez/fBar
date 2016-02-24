@@ -89,7 +89,7 @@ namespace DAO
 
         public static IEnumerable<Thread> GetAll()
         {
-            SQLiteDataReader threads = new SQLiteCommand("SELECT ROWID FROM thread ORDER BY timeCreated desc", Connector.Connector.GetConnection()).ExecuteReader();
+            SQLiteDataReader threads = new SQLiteCommand("SELECT ROWID FROM threads ORDER BY timeCreated desc", Connector.Connector.GetConnection()).ExecuteReader();
 
             while(threads.Read())
             {

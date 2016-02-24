@@ -27,6 +27,12 @@ namespace Connector
             new SQLiteCommand("CREATE TABLE login (user varchar(50), pwd varchar(32))", connection).ExecuteNonQuery();
             new SQLiteCommand("CREATE TABLE threads (title varchar(256), description varchar(1024), starter int, timeCreated int, lastActive int)", connection).ExecuteNonQuery();
             new SQLiteCommand("CREATE TABLE messages (thread int, sender int, text varchar(1024), timeSent int, upvotes int)", connection).ExecuteNonQuery();
+
+            new DAO.Thread("Testes", "Testes desc", 1);
+            new DAO.Thread("Testes 2", "Testes desc 2", 1);
+
+            new DAO.Message("Textão feminista", 1, 1);
+            new DAO.Message("Textão feminista 2.0", 1, 2);
         }
 
         public static SQLiteConnection GetConnection()

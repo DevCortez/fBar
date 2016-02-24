@@ -20,7 +20,7 @@ namespace DAO
         {
             get
             {
-                SQLiteDataReader title = new SQLiteCommand("SELECT title FROM thread WHERE ROWID = " + internalId.ToString(), Connector.Connector.GetConnection()).ExecuteReader();
+                SQLiteDataReader title = new SQLiteCommand("SELECT title FROM threads WHERE ROWID = " + internalId.ToString(), Connector.Connector.GetConnection()).ExecuteReader();
                 title.Read();
                 return title.GetValue(0).ToString();
             }
@@ -38,7 +38,7 @@ namespace DAO
         {
             get
             {
-                SQLiteDataReader author = new SQLiteCommand("SELECT starter FROM thread WHERE ROWID = " + internalId.ToString(), Connector.Connector.GetConnection()).ExecuteReader();
+                SQLiteDataReader author = new SQLiteCommand("SELECT starter FROM threads WHERE ROWID = " + internalId.ToString(), Connector.Connector.GetConnection()).ExecuteReader();
                 author.Read();                
                 return new Login(author.GetInt32(0)).Name;
             }
@@ -48,14 +48,14 @@ namespace DAO
         {
             get
             {
-                SQLiteDataReader lastActive = new SQLiteCommand("SELECT lastActive FROM thread WHERE ROWID = " + internalId.ToString(), Connector.Connector.GetConnection()).ExecuteReader();
+                SQLiteDataReader lastActive = new SQLiteCommand("SELECT lastActive FROM threads WHERE ROWID = " + internalId.ToString(), Connector.Connector.GetConnection()).ExecuteReader();
                 lastActive.Read();
                 return DateTime.FromBinary(lastActive.GetInt64(0));
             }
 
             set
             {
-                new SQLiteCommand(string.Format("UPDATE thread SET lastActive = {0} WHERE ROWID = {1}", value.ToString(), internalId.ToString()), Connector.Connector.GetConnection()).ExecuteNonQuery();
+                new SQLiteCommand(string.Format("UPDATE threads SET lastActive = {0} WHERE ROWID = {1}", value.ToString(), internalId.ToString()), Connector.Connector.GetConnection()).ExecuteNonQuery();
             }
         }
 
@@ -63,7 +63,7 @@ namespace DAO
         {
             get
             {
-                SQLiteDataReader created = new SQLiteCommand("SELECT timeCreated FROM thread WHERE ROWID = " + internalId.ToString(), Connector.Connector.GetConnection()).ExecuteReader();
+                SQLiteDataReader created = new SQLiteCommand("SELECT timeCreated FROM threads WHERE ROWID = " + internalId.ToString(), Connector.Connector.GetConnection()).ExecuteReader();
                 created.Read();
                 return DateTime.FromBinary(created.GetInt64(0));
             }
@@ -81,7 +81,7 @@ namespace DAO
         {
             get
             {
-                SQLiteDataReader title = new SQLiteCommand("SELECT description FROM thread WHERE ROWID = " + internalId.ToString(), Connector.Connector.GetConnection()).ExecuteReader();
+                SQLiteDataReader title = new SQLiteCommand("SELECT description FROM threads WHERE ROWID = " + internalId.ToString(), Connector.Connector.GetConnection()).ExecuteReader();
                 title.Read();
                 return title.GetValue(0).ToString();
             }
@@ -100,6 +100,16 @@ namespace DAO
         public Thread(int Id)
         {
             internalId = Id;    
+        }
+
+        public Thread(string Title, string Description, int Sender)
+        {//title varchar(256), description varchar(1024), starter int, timeCreated int, lastActive int
+            new SQLiteCommand(string.Format("INSERT INTO threads (title, description, starter, timeCreated, lastActive) VALUES ('{0}', '{1}', {2}, {3}, {4})", 
+                Title, Description, Sender, DateTime.Now.ToBinary(), DateTime.Now.ToBinary()), Connector.Connector.GetConnection()).ExecuteNonQuery();
+
+            SQLiteDataReader title = new SQLiteCommand("SELECT ROWID FROM threads ORDER BY timeCreated DESC LIMIT 1", Connector.Connector.GetConnection()).ExecuteReader();
+            title.Read();
+            internalId = title.GetInt32(0);
         }
     }
 }

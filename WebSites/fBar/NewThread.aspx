@@ -7,23 +7,35 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <title>Starting a new thread</title>
+    <link rel="stylesheet" type="text/css" href="css/Composer.css">
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
 
 
-        <div class="container">
+ <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
+<div class="container">
 	<div class="row">
-		<div class="span4 well" style="padding-bottom:0">
-            <form accept-charset="UTF-8" action="" method="POST">
-                <textarea class="span4" id="new_message" name="new_message"
-                placeholder="Type in your message" rows="5"></textarea>
-                <h6 class="pull-right">320 characters remaining</h6>
-                <button class="btn btn-info" type="submit">Post New Message</button>
-            </form>
-        </div>
+		<h3>Start new discussion</h3>
 	</div>
+    
+    <div class="row">
+    
+    <div class="col-md-6">
+    						<div class="widget-area no-padding blank">
+								<div class="status-upload">
+									<form>
+										<input type="text" class="form-control" placeholder="Discussion title" aria-describedby="basic-addon1">
+                                        
+                                        <textarea style="width:100%" placeholder="Discussion description" ></textarea>
+
+										</br><button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Share</button>
+									</form>
+								</div><!-- Status Upload  -->
+							</div><!-- Widget Area -->
+						</div>        
+    </div>
 </div>
 
     </div>

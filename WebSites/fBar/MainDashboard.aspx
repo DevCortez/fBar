@@ -45,16 +45,15 @@
 
 
         <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
-<div class="container">
-  <asp:PlaceHolder runat="server" ID="threads">
+    <div class="container">         
+        <asp:PlaceHolder runat="server" ID="threads">
 
-  </asp:PlaceHolder>
+          </asp:PlaceHolder>
   
    
   </div>
 </div>
 
-    </div>
     </form>
 </body>
 </html>

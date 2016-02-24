@@ -59,5 +59,15 @@ namespace DAO
         {
             internalId = Id;
         }
+
+        public Message(string Text, int Sender, int Thread)
+        {//CREATE TABLE messages (thread int, sender int, text varchar(1024), timeSent int, upvotes int)
+            new SQLiteCommand(string.Format("INSERT INTO messages (thread, sender, text, timeSent) VALUES ({0}, {1}, '{2}', {3})", 
+                Thread.ToString(), Sender.ToString(), Text, DateTime.Now.ToBinary()), Connector.Connector.GetConnection()).ExecuteNonQuery();
+
+            SQLiteDataReader query = new SQLiteCommand("SELECT ROWID FROM messages ORDER BY timeSent DESC LIMIT 1", Connector.Connector.GetConnection()).ExecuteReader();
+            query.Read();
+            internalId = query.GetInt32(0);
+        }
     }
 }

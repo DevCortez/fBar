@@ -13,6 +13,8 @@ public partial class MainDashboard : System.Web.UI.Page
         if (Session["id"] == null)
             Response.Redirect("Login.aspx");
 
+        loggedUser.Text = new DAO.Login(Int32.Parse(Session["id"].ToString())).Name;
+
         foreach(Thread thread in Thread.GetAll())
         {
             LiteralControl threadControl = new LiteralControl();

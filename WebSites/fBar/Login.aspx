@@ -16,14 +16,14 @@
     <div class="panel panel-default">
   <div class="panel-heading"><h3 class="panel-title"><strong>Sign In</strong></h3></div>
   <div class="panel-body">
-   <form role="form" action="fuck" method="post">
+   <form role="form" action="Login.aspx" method="post">
   <div class="form-group">
     <label for="exampleInputEmail1">Usr</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+    <input type="text" class="form-control" name="user" id="exampleInputEmail1" placeholder="Enter email">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Pwd</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <input type="password" class="form-control" name="pwd" id="exampleInputPassword1" placeholder="Password">
   </div>
   <button type="submit" class="btn btn-sm btn-default">Enter</button>
 </form>
